@@ -6,15 +6,17 @@ const readline = require("readline").createInterface({
 });
 
 readline.question("Enter a text: ", (text) => {
-  console.log("Count letter:", countletter(text));
+  console.log("Count word:", countWord(text));
   readline.close();
 });
 
-function countletter(text) {
+function countWord(text) {
   let result = [];
-  for (let i = 0; i < text.length; i++) {
-    if (result[text[i]]) result[text[i]]++;
-    else result[text[i]] = 1;
-  }
+  let textList = text.split(" ");
+  textList.forEach((word) => {
+    if (word !== "") {
+      result[word] = (result[word] || 0) + 1;
+    }
+  });
   return result;
 }
