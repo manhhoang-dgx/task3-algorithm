@@ -1,5 +1,16 @@
 let input = [5, 2, 1, 5, 29, 3, 5, 7];
 
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("Enter a list of numbers separated by space: ", (text) => {
+  input = text.split(" ").map((num) => parseFloat(num));
+  console.log("number of prime number:", countPrime(input));
+  readline.close();
+});
+
 function isPrime(num) {
   if (num < 2) return false;
   if (num === 2) return true;
@@ -17,5 +28,3 @@ function countPrime(input) {
   });
   return result;
 }
-
-console.log("number of prime number:", countPrime(input));

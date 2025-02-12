@@ -1,4 +1,15 @@
-let inputtext = " hello    world good  morning";
+let inputtext = "";
+
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("Enter a text: ", (text) => {
+  inputtext = text;
+  console.log("Modified text:", uppercaseFirstLetter(inputtext));
+  readline.close();
+});
 
 function uppercaseFirstLetter(text) {
   let result = "";
@@ -11,5 +22,3 @@ function uppercaseFirstLetter(text) {
   }
   return result;
 }
-
-console.log("Modified text:", uppercaseFirstLetter(inputtext));
